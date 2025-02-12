@@ -9,14 +9,15 @@ import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ['src/**/*.{js,ts,mjs,jsx,tsx}'] },
+  { ignores: ['build/'] },
+  { files: ['**/*.{js,ts,mjs,jsx,tsx}'] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   ...tsEslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   pluginPrettierRecommended,
   {
-    files: ['src/**/*.test.{js,ts,jsx,tsx}'],
+    files: ['**/*.test.{js,ts,jsx,tsx}'],
     plugins: { jest: pluginJest },
     languageOptions: {
       globals: pluginJest.environments.globals.globals,
@@ -30,7 +31,7 @@ export default [
     },
   },
   {
-    files: ['src/**/*.test.{js,ts,jsx,tsx}'],
+    files: ['**/*.test.{js,ts,jsx,tsx}'],
     ...pluginJestDom.configs['flat/recommended'],
     ...pluginTestingLibrary.configs['flat/react'],
   },

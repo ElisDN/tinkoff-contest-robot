@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['stylelint-config-standard', 'stylelint-config-standard-scss', 'stylelint-prettier/recommended'],
+  extends: ['stylelint-config-standard', 'stylelint-config-standard-scss'],
   plugins: ['stylelint-prettier'],
   rules: {
     'prettier/prettier': true,

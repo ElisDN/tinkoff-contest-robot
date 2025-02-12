@@ -6,13 +6,14 @@ import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ['src/**/*.{js,ts}'] },
+  { ignores: ['build/'] },
+  { files: ['**/*.{js,ts,mjs,jsx,tsx}'] },
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   ...tsEslint.configs.recommended,
   pluginPrettierRecommended,
   {
-    files: ['src/**/*.test.{js,ts}'],
+    files: ['**/*.test.{js,ts}'],
     plugins: { jest: pluginJest },
     languageOptions: {
       globals: pluginJest.environments.globals.globals,
